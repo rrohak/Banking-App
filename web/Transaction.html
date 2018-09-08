@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perform a transaction</title>
+</head>
+<body>
+<center>
+    <h1>Perform Debit or Credit operation</h1>
+</center>
+<form action="/transact" method="post">
+    Account number <input type="number" name="AccountNumber"/>
+    <br/>
+    Amount <input type="number" name="Amount" placeholder="$0.00"/>
+    <br/>
+    <input type="submit" name="Debit From">Debit From<input/>
+    <br/>
+    <input type="submit" name="Credit to"/>
+</form>
+</body>
+</html>
