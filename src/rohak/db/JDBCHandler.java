@@ -1,5 +1,8 @@
 package rohak.db;
 
+import rohak.app.AccCreation.Account;
+import rohak.app.AccCreation.AccountCreation;
+
 import javax.xml.transform.Result;
 import java.sql.*;
 
@@ -53,6 +56,34 @@ public class JDBCHandler {
             System.out.println("An exception has occurred: " + e);
         }
         return auth;
+    }
+
+    public boolean createAccount(Account account){
+        boolean acc = false;
+
+        AccountCreation accountCreation = new AccountCreation();
+
+        try {
+            String sql = "insert into account_details (name, DOB, Address, Email, AccType) VALUES (?,?,?,?,?)";
+            pStmt = con.prepareStatement(sql);
+            pStmt.setString(1, account.name);
+            pStmt.setString(2,account.dob);
+            pStmt.setString(3, account.address);
+            pStmt.setString(4, account.email);
+            pStmt.setString(5, accountCreation.Accounttype);
+
+            acc = pStmt.execute();
+
+            if (acc != true){
+                System.out.println("Account has been created");
+            }else{
+                System.out.println("Account creation failed, please try again");
+            }
+        }catch (Exception e){
+            System.out.println("An exception has occurred: " + e);
+        }
+
+        return !acc;
     }
 
     public void closeConnection() {

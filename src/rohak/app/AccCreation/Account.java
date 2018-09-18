@@ -1,11 +1,11 @@
 package rohak.app.AccCreation;
 
 public class Account {
-    String name;
-    String dob;
-    String address;
-    String email;
-    Integer acctype;
+    public String name;
+    public String dob;
+    public String address;
+    public String email;
+    public Integer acctype;
 
     public Account() {
     }
